@@ -61,6 +61,7 @@ def admin_required(fn):
     return wrapper
 
 
+
 @app.route("/")
 def home():
     platform = request.args.get("platform", "all")
@@ -81,9 +82,17 @@ def home():
 
     sql += " ORDER BY id DESC"
     coupons = conn.execute(sql, params).fetchall()
+    total_coupons = len(coupons)
     conn.close()
 
-    return render_template("index.html", coupons=coupons, platform=platform, keyword=keyword)
+    return render_template(
+        "index.html",
+        coupons=coupons,
+        platform=platform,
+        keyword=keyword,
+        total_coupons=total_coupons
+    )
+
 
 
 @app.route("/copy/<code>")

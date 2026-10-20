@@ -22,23 +22,27 @@
         <a class="{{ 'selected' if platform == 'all' else '' }}" href="{{ url_for('home') }}">Tất cả mã</a>
         <a class="{{ 'selected shopee' if platform == 'Shopee' else '' }}" href="?platform=Shopee">Lọc Shopee</a>
         <a class="{{ 'selected lazada' if platform == 'Lazada' else '' }}" href="?platform=Lazada">Lọc Lazada</a>
-        <a class="{{ 'selected tiktok' if platform == 'TikTok Shop' else '' }}" href="?platform=TikTok+Shop">Lọc TikTok Shop</a>
+        <a class="{{ 'selected tiktok' if platform == 'TikTok Shop' else '' }}" href="?platform=TikTok+Shop">Lọc TikTok
+            Shop</a>
     </div>
 
     <div class="shop-links">
         <div class="shop-links-title">Mua sắm trực tiếp</div>
         <a class="shop-link shopee-link" href="https://shopee.vn/" target="_blank" rel="noopener noreferrer">
-            <span class="shop-logo"><img src="https://cdn.simpleicons.org/shopee/EE4D2D" alt="Logo Shopee" loading="lazy"></span>
+            <span class="shop-logo"><img src="https://cdn.simpleicons.org/shopee/EE4D2D" alt="Logo Shopee"
+                    loading="lazy"></span>
             <span><strong>Shopee</strong><small>Mở Shopee</small></span>
             <b>→</b>
         </a>
         <a class="shop-link lazada-link" href="https://www.lazada.vn/" target="_blank" rel="noopener noreferrer">
-            <span class="shop-logo"><img src="https://cdn.simpleicons.org/lazada/6C35D9" alt="Logo Lazada" loading="lazy"></span>
+            <span class="shop-logo"><img src="https://cdn.simpleicons.org/lazada/6C35D9" alt="Logo Lazada"
+                    loading="lazy"></span>
             <span><strong>Lazada</strong><small>Mở Lazada</small></span>
             <b>→</b>
         </a>
         <a class="shop-link tiktok-link" href="https://shop.tiktok.com/" target="_blank" rel="noopener noreferrer">
-            <span class="shop-logo"><img src="https://cdn.simpleicons.org/tiktok/25F4EE" alt="Logo TikTok Shop" loading="lazy"></span>
+            <span class="shop-logo"><img src="https://cdn.simpleicons.org/tiktok/25F4EE" alt="Logo TikTok Shop"
+                    loading="lazy"></span>
             <span><strong>TikTok Shop</strong><small>Mở TikTok Shop</small></span>
             <b>→</b>
         </a>
@@ -57,9 +61,12 @@
         <article class="coupon-card">
             <div class="card-top">
                 <span class="platform {{ c.platform|lower|replace(' ', '-') }}">
-                    {% if c.platform == 'Shopee' %}<img src="https://cdn.simpleicons.org/shopee/EE4D2D" alt="" loading="lazy">
-                    {% elif c.platform == 'Lazada' %}<img src="https://cdn.simpleicons.org/lazada/6C35D9" alt="" loading="lazy">
-                    {% elif c.platform == 'TikTok Shop' %}<img src="https://cdn.simpleicons.org/tiktok/25F4EE" alt="" loading="lazy">{% endif %}
+                    {% if c.platform == 'Shopee' %}<img src="https://cdn.simpleicons.org/shopee/EE4D2D" alt=""
+                        loading="lazy">
+                    {% elif c.platform == 'Lazada' %}<img src="https://cdn.simpleicons.org/lazada/6C35D9" alt=""
+                        loading="lazy">
+                    {% elif c.platform == 'TikTok Shop' %}<img src="https://cdn.simpleicons.org/tiktok/25F4EE" alt=""
+                        loading="lazy">{% endif %}
                     {{ c.platform }}
                 </span>
                 <span class="discount">-{{ c.discount }}</span>
@@ -79,11 +86,16 @@
             </div>
 
             <a class="deal-button" href="{{ c.link or '#' }}" target="_blank">Đến {{ c.platform }} →</a>
+
+            <div class="coupon-count">
+                Tìm thấy <strong>{{ total_coupons }}</strong> mã giảm giá
+            </div>
+
         </article>
         {% endfor %}
     </div>
     {% else %}
-        <div class="empty">Không tìm thấy mã phù hợp.</div>
+    <div class="empty">Không tìm thấy mã phù hợp.</div>
     {% endif %}
 </main>
 {% endblock %}
