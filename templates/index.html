@@ -35,7 +35,7 @@
             <b>→</b>
         </a>
         <a class="shop-link lazada-link" href="https://www.lazada.vn/" target="_blank" rel="noopener noreferrer">
-            <span class="shop-logo"><img src="https://cdn.simpleicons.org/lazada/6C35D9" alt="Logo Lazada"
+            <span class="shop-logo"><img src="https://img.lazcdn.com/g/tps/images/ims-web/TB1T7K2d8Cw3KVjSZFuXXcAOpXa.png" alt="Logo Lazada"
                     loading="lazy"></span>
             <span><strong>Lazada</strong><small>Mở Lazada</small></span>
             <b>→</b>
@@ -63,7 +63,7 @@
                 <span class="platform {{ c.platform|lower|replace(' ', '-') }}">
                     {% if c.platform == 'Shopee' %}<img src="https://cdn.simpleicons.org/shopee/EE4D2D" alt=""
                         loading="lazy">
-                    {% elif c.platform == 'Lazada' %}<img src="https://cdn.simpleicons.org/lazada/6C35D9" alt=""
+                    {% elif c.platform == 'Lazada' %}<img src="https://img.lazcdn.com/g/tps/images/ims-web/TB1T7K2d8Cw3KVjSZFuXXcAOpXa.png" alt=""
                         loading="lazy">
                     {% elif c.platform == 'TikTok Shop' %}<img src="https://cdn.simpleicons.org/tiktok/25F4EE" alt=""
                         loading="lazy">{% endif %}
@@ -87,9 +87,7 @@
 
             <a class="deal-button" href="{{ c.link or '#' }}" target="_blank">Đến {{ c.platform }} →</a>
 
-            <div class="coupon-count">
-                Tìm thấy <strong>{{ total_coupons }}</strong> mã giảm giá
-            </div>
+        
 
         </article>
         {% endfor %}
@@ -97,5 +95,8 @@
     {% else %}
     <div class="empty">Không tìm thấy mã phù hợp.</div>
     {% endif %}
+        <div class="coupon-count">
+                Tìm thấy <strong>{{ total_coupons }}</strong> mã giảm giá
+            </div>
 </main>
 {% endblock %}
